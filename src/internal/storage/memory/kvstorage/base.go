@@ -1,6 +1,5 @@
 package kvstorage
 
-/*
 import (
 	"sync"
 )
@@ -44,4 +43,3 @@ func New(options ...StorageOption) Storer {
 
 	return ms
 }
-*/
