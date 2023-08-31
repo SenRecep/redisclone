@@ -1,0 +1,6 @@
+$ http POST "http://localhost:8000/api/v1/set" key="success" value:=true
+$ http POST "http://localhost:8000/api/v1/set" key="server_env" value="production"
+$ http "http://localhost:8000/api/v1/list"
+$ http PUT "http://localhost:8000/api/v1/update" key="success" value:=false
+$ http "http://localhost:8000/api/v1/get?key=success"
+$ http DELETE "http://localhost:8000/api/v1/delete?key=success"

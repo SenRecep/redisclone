@@ -1,0 +1,59 @@
+# add new key/value
+$ curl -L -s -X POST -H "Content-Type: application/json" -d '{"key": "success", "value": true}' "http://localhost:8000/api/v1/set" | jq
+{
+  "key": "success",
+  "value": true
+}
+
+$ curl -L -s -X POST -H "Content-Type: application/json" -d '{"key": "server_env", "value": "production"}' "http://localhost:8000/api/v1/set" | jq
+{
+  "key": "server_env",
+  "value": "production"
+}
+
+$ curl -L -s -H "Content-Type: application/json" "http://localhost:8000/api/v1/list" | jq
+[
+  {
+    "key": "success",
+    "value": true
+  },
+  {
+    "key": "server_env",
+    "value": "production"
+  }
+]
+
+$ curl -L -s -X PUT -H "Content-Type: application/json" -d '{"key": "success", "value": false}' "http://localhost:8000/api/v1/update" | jq
+{
+  "key": "success",
+  "value": false
+}
+
+$ curl -L -s -H "Content-Type: application/json" "http://localhost:8000/api/v1/list" | jq
+[
+  {
+    "key": "success",
+    "value": false
+  },
+  {
+    "key": "server_env",
+    "value": "production"
+  }
+]
+
+$ curl -L -s -H "Content-Type: application/json" "http://localhost:8000/api/v1/get?key=success" | jq
+{
+  "key": "success",
+  "value": false
+}
+
+$ curl -L -s -X DELETE -H "Content-Type: application/json" -o /dev/null -w '%{http_code}\n' "http://localhost:8000/api/v1/delete?key=success"
+204
+
+$ curl -L -s -H "Content-Type: application/json" "http://localhost:8000/api/v1/list" | jq
+[
+  {
+    "key": "server_env",
+    "value": "production"
+  }
+]
