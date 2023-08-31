@@ -39,12 +39,13 @@ type apiServer struct {
 // Option represents api server option type.
 type Option func(*apiServer)
 
+/*
 // WithLogger sets logger option.
 func WithLogger(l *slog.Logger) Option {
 	return func(s *apiServer) {
 		s.logger = l
 	}
-}
+}*/
 
 // WithServerEnv sets serverEnv option.
 func WithServerEnv(env string) Option {
