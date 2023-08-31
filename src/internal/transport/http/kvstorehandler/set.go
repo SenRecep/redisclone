@@ -4,10 +4,11 @@ import (
 	"context"
 	"encoding/json"
 	"errors"
-	"github.com/SenRecep/redisclone/src/internal/kverror"
-	"github.com/SenRecep/redisclone/src/internal/service/kvstoreservice"
 	"io"
 	"net/http"
+
+	"github.com/SenRecep/redisclone/src/internal/kverror"
+	"github.com/SenRecep/redisclone/src/internal/service/kvstoreservice"
 )
 
 func (h *kvstoreHandler) Set(w http.ResponseWriter, r *http.Request) {

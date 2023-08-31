@@ -1,9 +1,10 @@
 package main
 
 import (
-	"github.com/SenRecep/redisclone/src/apiserver"
 	"log"
 	"os"
+
+	"github.com/SenRecep/redisclone/src/apiserver"
 )
 
 func main() {

@@ -3,8 +3,9 @@ package kvstorehandler
 import (
 	"context"
 	"errors"
-	"github.com/SenRecep/redisclone/src/internal/kverror"
 	"net/http"
+
+	"github.com/SenRecep/redisclone/src/internal/kverror"
 )
 
 func (h *kvstoreHandler) Delete(w http.ResponseWriter, r *http.Request) {

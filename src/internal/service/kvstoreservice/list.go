@@ -2,12 +2,13 @@ package kvstoreservice
 
 import (
 	"context"
+	"fmt"
 )
 
 func (s *kvStoreService) List(ctx context.Context) (*ListResponse, error) {
 	select {
 	case <-ctx.Done():
-		return nil, ctx.Err()
+		return nil, fmt.Errorf("kvstoreservice.List storage.List err: %w", ctx.Err())
 	default:
 		items := s.storage.List()
 		response := make(ListResponse, len(items))

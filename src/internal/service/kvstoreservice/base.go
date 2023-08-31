@@ -2,6 +2,7 @@ package kvstoreservice
 
 import (
 	"context"
+
 	"github.com/SenRecep/redisclone/src/internal/storage/memory/kvstorage"
 )
 
@@ -24,9 +25,9 @@ type kvStoreService struct {
 type ServiceOption func(*kvStoreService)
 
 // WithStorage sets storage option.
-func WithStorage(strg kvstorage.Storer) ServiceOption {
+func WithStorage(storage kvstorage.Storer) ServiceOption {
 	return func(s *kvStoreService) {
-		s.storage = strg
+		s.storage = storage
 	}
 }
 

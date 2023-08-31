@@ -4,10 +4,6 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/SenRecep/redisclone/src/internal/service/kvstoreservice"
-	"github.com/SenRecep/redisclone/src/internal/storage/memory/kvstorage"
-	"github.com/SenRecep/redisclone/src/internal/transport/http/kvstorehandler"
-	"github.com/SenRecep/redisclone/src/releaseinfo"
 	"log/slog"
 	"net/http"
 	"os"
@@ -15,6 +11,11 @@ import (
 	"sync"
 	"syscall"
 	"time"
+
+	"github.com/SenRecep/redisclone/src/internal/service/kvstoreservice"
+	"github.com/SenRecep/redisclone/src/internal/storage/memory/kvstorage"
+	"github.com/SenRecep/redisclone/src/internal/transport/http/kvstorehandler"
+	"github.com/SenRecep/redisclone/src/releaseinfo"
 )
 
 // constants.
