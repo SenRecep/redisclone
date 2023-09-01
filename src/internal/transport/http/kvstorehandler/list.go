@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	"net/http"
+	"strings"
 
 	"github.com/SenRecep/redisclone/src/internal/kverror"
 )
@@ -71,6 +72,17 @@ func (h *kvstoreHandler) List(w http.ResponseWriter, r *http.Request) {
 		)
 		return
 	}
+	q := r.URL.Query()
+	if len(q) != 0 && q.Has("order_by") {
+		qv := q.Get("order_by")
+		if len(qv) == 0 {
+			goto OrderBy
+		}
+		isAsc := qv[0] == '-'
+		orderFieldIsKey := strings.HasSuffix(qv, "key")
+		handlerResponse.Order(isAsc, orderFieldIsKey)
+	}
+OrderBy:
 
 	h.JSON(
 		w,
