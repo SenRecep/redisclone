@@ -33,7 +33,7 @@ func TestUpdateWithStorageError(t *testing.T) {
 	}
 	if _, err := kvsStoreService.Update(context.Background(), &updateRequest); !strings.Contains(
 		err.Error(),
-		"kvstoreservice.Set storage.Update",
+		"kvstoreservice.Update storage.Update",
 	) {
 		t.Error("error not occurred")
 	}

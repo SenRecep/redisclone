@@ -29,7 +29,7 @@ func TestDeleteWithStorageError(t *testing.T) {
 
 	if err := kvsStoreService.Delete(context.Background(), "key"); !strings.Contains(
 		err.Error(),
-		"kvstoreservice.Set storage.Delete",
+		"kvstoreservice.Delete storage.Delete",
 	) {
 		t.Error("error not occurred")
 	}

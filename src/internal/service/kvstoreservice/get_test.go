@@ -29,7 +29,7 @@ func TestGetWithStorageError(t *testing.T) {
 
 	if _, err := kvsStoreService.Get(context.Background(), "key"); !strings.Contains(
 		err.Error(),
-		"kvstoreservice.Set storage.Get",
+		"kvstoreservice.Get storage.Get",
 	) {
 		t.Error("error not occurred")
 	}
