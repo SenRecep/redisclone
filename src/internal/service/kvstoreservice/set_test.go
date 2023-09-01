@@ -24,10 +24,8 @@ func TestSetWithCancel(t *testing.T) {
 
 func TestSet(t *testing.T) {
 	mockStorage := &mockStorage{
-		setErr: errStorageSet,
-		memoryDB: map[string]any{
-			"key": "value",
-		},
+		setErr:   errStorageSet,
+		memoryDB: map[string]any{},
 	}
 	kvsStoreService := kvstoreservice.New(kvstoreservice.WithStorage(mockStorage))
 
@@ -35,8 +33,22 @@ func TestSet(t *testing.T) {
 		Key:   "key",
 		Value: "value",
 	}
+	val, err := kvsStoreService.Set(context.Background(), &setRequest)
+	if err == nil {
+		t.Errorf("error occurred error: %v", err)
+	}
+
+	if val == nil {
+		t.Errorf("error occurred")
+	}
+
+	setRequest = kvstoreservice.SetRequest{
+		Key:   "key",
+		Value: "value",
+	}
 
 	if _, err := kvsStoreService.Set(context.Background(), &setRequest); err == nil {
 		t.Errorf("error occurred error: %v", err)
 	}
+
 }

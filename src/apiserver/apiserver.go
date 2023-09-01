@@ -114,7 +114,7 @@ func New(options ...Option) error {
 
 	mux := http.NewServeMux()
 
-	mux.HandleFunc("/healthz/live", func(w http.ResponseWriter, r *http.Request) {
+	mux.HandleFunc("/healthz/live/", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(http.StatusOK)
 
@@ -126,7 +126,7 @@ func New(options ...Option) error {
 		})
 		_, _ = w.Write(j)
 	})
-	mux.HandleFunc("/healthz/ready", func(w http.ResponseWriter, r *http.Request) {
+	mux.HandleFunc("/healthz/ready/", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(http.StatusOK)
 
