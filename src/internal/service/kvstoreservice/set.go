@@ -12,7 +12,7 @@ func (s *kvStoreService) Set(ctx context.Context, sr *SetRequest) (*ItemResponse
 	default:
 		value, err := s.storage.Set(sr.Key, sr.Value)
 		if err != nil {
-			return nil, fmt.Errorf("kvstoreservice.Set storage.Set err: %w", ctx.Err())
+			return nil, fmt.Errorf("kvstoreservice.Set storage.Set err: %w", err)
 		}
 
 		return &ItemResponse{

@@ -35,7 +35,8 @@ func TestSet(t *testing.T) {
 		Key:   "key",
 		Value: "value",
 	}
+
 	if _, err := kvsStoreService.Set(context.Background(), &setRequest); err == nil {
-		t.Error("error occurred")
+		t.Errorf("error occurred error: %v", err)
 	}
 }
