@@ -6,21 +6,12 @@ Project capable of performing basic "redis" functions
 
 ---
 
-## Requirements
-
-Requirements here...
-
----
-
 ## Installation
 
-Installation information here...
+```bash
+git clone git@github.com:SenRecep/redisclone.git
+```
 
----
-
-## Usage
-
-Usage information here...
 
 ---
 
