@@ -22,3 +22,16 @@ func TestList(t *testing.T) {
 		t.Error("value not equal")
 	}
 }
+
+func TestEmptyList(t *testing.T) {
+	memoryStorage := kvstorage.MemoryDB{}
+	storage := kvstorage.New(
+		kvstorage.WithMemoryDB(memoryStorage),
+	)
+
+	value := storage.List()
+
+	if len(value) != 0 {
+		t.Error("memory Storage not empty")
+	}
+}

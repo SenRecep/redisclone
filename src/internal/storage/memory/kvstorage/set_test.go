@@ -22,3 +22,18 @@ func TestSet(t *testing.T) {
 		t.Error("value not equal")
 	}
 }
+
+func TestExistKeySet(t *testing.T) {
+	key := "key"
+	memoryStorage := kvstorage.MemoryDB{
+		key: "deneme",
+	}
+	storage := kvstorage.New(
+		kvstorage.WithMemoryDB(memoryStorage),
+	)
+
+	_, err := storage.Set(key, "value")
+	if err == nil {
+		t.Error(err)
+	}
+}
