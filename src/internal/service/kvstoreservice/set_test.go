@@ -38,8 +38,6 @@ func TestSet(t *testing.T) {
 		t.Errorf("error occurred error: %v", err)
 	}
 
-	//todo Coverage problem
-
 	setRequest = kvstoreservice.SetRequest{
 		Key:   "key",
 		Value: "value",
@@ -48,5 +46,4 @@ func TestSet(t *testing.T) {
 	if _, err := kvsStoreService.Set(context.Background(), &setRequest); err == nil {
 		t.Errorf("error occurred error: %v", err)
 	}
-
 }

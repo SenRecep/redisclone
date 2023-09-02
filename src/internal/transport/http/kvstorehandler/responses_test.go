@@ -79,7 +79,6 @@ func TestCompareValues(t *testing.T) {
 	if result {
 		t.Errorf("Expected true, got false for string comparison")
 	}
-
 }
 
 func TestIsSameType(t *testing.T) {
@@ -94,5 +93,4 @@ func TestIsSameType(t *testing.T) {
 	if result {
 		t.Errorf("Expected false, got true for different types")
 	}
-
 }
