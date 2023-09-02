@@ -10,6 +10,12 @@ Project capable of performing basic "redis" functions
 
 ```bash
 git clone git@github.com:SenRecep/redisclone.git
+
+export BUILD_INFO="$(git rev-parse HEAD)-$(go env GOOS)-$(go env GOARCH)" 
+
+docker build --build-arg="BUILD_INFORMATION=${BUILD_INFO}" -t senrecep/redisclone:latest . 
+
+SERVER_ENV="production" LOG_LEVEL="INFO" docker run --cpus="2" --env SERVER_ENV --env LOG_LEVEL -p 8000:8000 --name redisclone  senrecep/redisclone:latest
 ```
 
 
